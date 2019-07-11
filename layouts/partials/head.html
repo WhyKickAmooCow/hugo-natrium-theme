@@ -14,13 +14,13 @@
 {{ if eq .URL "/" }}
 <meta property="description" content="{{ .Site.Params.description }}">
 {{ else }}
-  {{ if .Description }}
-  <meta property="description" content="{{ .Description }}">
-  {{ end }}
+{{ if .Description }}
+<meta property="description" content="{{ .Description }}">
+{{ end }}
 {{ end }}
 
 {{ if .Keywords }}
-<meta property="keywords" content ="{{ delimit .Keywords ", " }}">
+<meta property="keywords" content="{{ delimit .Keywords ", " }}">
 {{ end }}
 
 {{ if .RSSLink }}
@@ -29,3 +29,7 @@
 
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" media="all">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/fonts.css">
+
+{{ if or .Params.math .Site.Params.math }}
+{{ partial "math.html" . }}
+{{ end }}
