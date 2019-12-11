@@ -34,4 +34,7 @@
 {{ partial "math.html" . }}
 {{ end }}
 
-{{ .Site.Params.AnalyticsSnippet | safeHTML }}
+{{ if .Site.Params.AnalyticsSnippet}}
+<script src="{{ .Site.BaseURL }}js/analytics.js">
+</script>
+{{ end }}
